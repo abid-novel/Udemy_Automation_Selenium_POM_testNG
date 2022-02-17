@@ -12,7 +12,7 @@ public class Setup {
     public WebDriver driver;
 
     @BeforeTest
-    public void setUp() {
+    public void setup() {
         System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headed");
