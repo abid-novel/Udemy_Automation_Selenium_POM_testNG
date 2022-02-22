@@ -3,6 +3,7 @@ package Pages;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -35,6 +36,19 @@ public class SignupAndEnrollCourse {
     WebElement btnNext2;
     @FindBy(css = "a")
     List <WebElement> btnFinish;
+    @FindBy(className = "udlite-accordion-panel-title")
+    List <WebElement> filterPrice;
+    @FindBy(xpath = "//label[contains(text(), 'Free')]")
+    WebElement labelFree;
+    @FindBy(xpath = "//a[contains(text(),'Selenium WebDriver with Java Quickstart')]")
+    WebElement freeCourse1;
+    @FindBy(css = "button")
+    List <WebElement> btnEnroll1;
+    @FindBy(className = "list-menu--list-menu-container--21IlT")
+    List <WebElement> userProfile;
+    @FindBy(xpath = "//div[contains(text(),'Log out')]")
+    WebElement logout;
+
 
 
     public SignupAndEnrollCourse(WebDriver driver) {
@@ -62,6 +76,26 @@ public class SignupAndEnrollCourse {
         btnNext2.click();
         Thread.sleep(1000);
         btnFinish.get(1).click();
+
+    }
+
+    public void enrollFreeCourse1() throws InterruptedException {
+        Thread.sleep(3000);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,2000)");
+        Thread.sleep(2000);
+        filterPrice.get(6).click();
+        Thread.sleep(1000);
+        labelFree.click();
+        Thread.sleep(2000);
+        freeCourse1.click();
+        Thread.sleep(2000);
+        btnEnroll1.get(6).click();
+        Thread.sleep(3000);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(userProfile.get(1)).perform();
+        Thread.sleep(1000);
+        logout.click();
 
     }
 

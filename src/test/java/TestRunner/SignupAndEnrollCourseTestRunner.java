@@ -17,6 +17,8 @@ public class SignupAndEnrollCourseTestRunner extends Setup {
         Utils utils = new Utils();
         utils.getUserDetails(1);
         signup.userSignup(utils.getUserFullName(), utils.getUserEmail(), utils.getUserPassword());
+        driver.get("https://www.udemy.com/topic/selenium-webdriver/");
+        signup.enrollFreeCourse1();
 
     }
 
