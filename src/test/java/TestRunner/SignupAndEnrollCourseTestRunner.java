@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class SignupAndEnrollCourseTestRunner extends Setup {
 
-    @Test
+    @Test(priority = 1)
     public void doSignupAndEnrollFreeCourse() throws IOException, ParseException, InterruptedException {
         SignupAndEnrollCourse signup = new SignupAndEnrollCourse(driver);
         Utils utils = new Utils();
