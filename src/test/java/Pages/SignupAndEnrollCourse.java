@@ -29,7 +29,7 @@ public class SignupAndEnrollCourse {
     @FindBy(css = "button")
     List <WebElement> btnNext1;
     @FindBy(xpath = "//span[contains(text(),'Software Development')]")
-   WebElement professionLearning;
+    WebElement professionLearning;
     @FindBy(name = "Web Developer")
     WebElement professionWebDev;
     @FindBy(xpath = "//span[contains(text(), 'Next')]")
@@ -42,8 +42,12 @@ public class SignupAndEnrollCourse {
     WebElement labelFree;
     @FindBy(xpath = "//a[contains(text(),'Selenium WebDriver with Java Quickstart')]")
     WebElement freeCourse1;
+    @FindBy(xpath = "//a[contains(text(),'Selenium Webdriver Java : Learn from Scratch (Free course')]")
+    WebElement freeCourse2;
+    @FindBy(xpath = "//a[contains(text(),'Cucumber, Selenium & Java -Develop a Framework in ')]")
+    WebElement freeCourse3;
     @FindBy(css = "button")
-    List <WebElement> btnEnroll1;
+    List <WebElement> btnEnroll;
     @FindBy(className = "list-menu--list-menu-container--21IlT")
     List <WebElement> userProfile;
     @FindBy(xpath = "//div[contains(text(),'Log out')]")
@@ -76,6 +80,7 @@ public class SignupAndEnrollCourse {
         btnNext2.click();
         Thread.sleep(1000);
         btnFinish.get(1).click();
+        Thread.sleep(2000);
 
     }
 
@@ -90,14 +95,49 @@ public class SignupAndEnrollCourse {
         Thread.sleep(2000);
         freeCourse1.click();
         Thread.sleep(2000);
-        btnEnroll1.get(6).click();
+        btnEnroll.get(6).click();
         Thread.sleep(3000);
+
+    }
+
+    public void enrollFreeCourse2() throws InterruptedException {
+        Thread.sleep(3000);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,2000)");
+        Thread.sleep(2000);
+        filterPrice.get(6).click();
+        Thread.sleep(1000);
+        labelFree.click();
+        Thread.sleep(2000);
+        freeCourse2.click();
+        Thread.sleep(2000);
+        btnEnroll.get(6).click();
+        Thread.sleep(3000);
+
+    }
+
+    public void enrollFreeCourse3() throws InterruptedException {
+        Thread.sleep(3000);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,2000)");
+        Thread.sleep(2000);
+        filterPrice.get(6).click();
+        Thread.sleep(1000);
+        labelFree.click();
+        Thread.sleep(2000);
+        freeCourse3.click();
+        Thread.sleep(2000);
+        btnEnroll.get(6).click();
+        Thread.sleep(3000);
+
+    }
+
+    public void logout() throws InterruptedException {
         Actions actions = new Actions(driver);
         actions.moveToElement(userProfile.get(1)).perform();
         Thread.sleep(1000);
         logout.click();
+        Thread.sleep(2000);
 
     }
-
-
 }

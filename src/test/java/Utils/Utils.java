@@ -5,7 +5,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -45,8 +44,8 @@ public class Utils {
         JSONArray jsonArray = (JSONArray) obj;
         JSONObject userObj = (JSONObject) jsonArray.get(pos);
 
-        setUserFullName( (String) userObj.get("fullname"));
-        setUserEmail ( (String) userObj.get("email"));
+        setUserFullName((String) userObj.get("fullname"));
+        setUserEmail((String) userObj.get("email"));
         setUserPassword((String) userObj.get("password"));
     }
 }
